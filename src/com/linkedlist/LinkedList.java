@@ -53,6 +53,36 @@ public class LinkedList {
 		return isAdded;
 	}
 	
+	/**this method is created to insert the element at particular position
+	 * @param pos
+	 * @param data
+	 */
+	public void insertAtPos(int pos, int data) {
+		
+		if(pos < 1) {
+			System.out.println("Invalid position");
+			return;
+		}
+		
+		if(pos == 1) {
+			push(data);
+		}else {
+			while(pos-- != 0) {
+				
+				if(pos == 1) {
+					Node newNode = new Node(data);
+					newNode.next = head.next;
+					head.next = newNode;
+					break;
+				}
+				head = head.next;
+			}
+			if(pos != 1) {
+				System.out.println("Position is out of range");
+			}
+		}
+	}
+	
 	/**
 	 * this is the method used to display the linked list
 	 */

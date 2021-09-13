@@ -5,17 +5,12 @@ public class Main {
 		System.out.println("Welcome to linked list");
 		LinkedList list = new LinkedList();
 		
-//		list.push(70);
-//		list.push(30);
-//		list.push(56);
-//		
-//		list.print();
+		list.push(70);
+		list.push(56);
 		
-		list.append(56);
-		list.append(30);
-		list.append(70);
-		
+		list.insertAtPos(2, 30);
 		list.print();
+		
 		
 	}
 }
