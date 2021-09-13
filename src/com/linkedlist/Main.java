@@ -10,8 +10,9 @@ public class Main {
 		
 		list.insertAtPos(2, 30);
 		
-		list.popLast();
 		list.print();
+		
+		System.out.println("\n"+list.search(30));
 		
 		
 	}
