@@ -11,9 +11,13 @@ public class Main {
 		
 		list.insertAtPos(3, 40);
 		
+		list.remove(40);
+		
 		list.print();
 		
 		System.out.println("\n"+list.search(30));
+		
+		System.out.println(list.size());
 		
 		
 	}

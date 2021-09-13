@@ -6,6 +6,7 @@ package com.linkedlist;
  */
 public class LinkedList {
 	private Node head;
+	private int size;
 	
 	/**nested class is created to implement node in linked list
 	 * @author saneeths
@@ -28,6 +29,7 @@ public class LinkedList {
 		Node newNode = new Node(data);
 		newNode.next = head;
 		head = newNode;
+		size++;
 	}
 	
 	/**this method appends the value to the linked list at the end
@@ -50,6 +52,7 @@ public class LinkedList {
 			temp.next  = newNode;
 			isAdded = true;
 		}
+		size++;
 		return isAdded;
 	}
 	
@@ -68,6 +71,7 @@ public class LinkedList {
 		
 		if(pos == 1) {
 			push(data);
+			size++;
 		}else {
 			Node temp;
 		    temp = head;
@@ -82,6 +86,7 @@ public class LinkedList {
 			} else {
 			   System.out.println("The previous node is null");
 			}
+		    size++;
 		}
 		
 	}
@@ -96,6 +101,7 @@ public class LinkedList {
 		}
 		Node temp = head;
 		head = temp.next;
+		size--;
 		return temp.data;
 	}
 	
@@ -110,6 +116,7 @@ public class LinkedList {
 		if(head.next == null) {
 			Node temp = head;
 			head = null;
+			size--;
 			return temp.data;
 		}
 		
@@ -119,6 +126,7 @@ public class LinkedList {
 		}
 		int data = temp.next.data;
 		temp.next = null;
+		size--;
 		return data;
 	}
 	
@@ -142,6 +150,45 @@ public class LinkedList {
 			temp = temp.next;
 		}
 		return isFound;
+	}
+	
+	
+	/**this method is created to remove the element from certain position
+	 * @param element
+	 * @return
+	 */
+	public boolean remove(int element) {
+		if(!search(element)) {
+			System.out.println("Data not found!!");
+			return false;
+		}
+		Node temp = head;
+		Node prev = null;
+		if(temp != null && temp.data == element) {
+			head =temp.next;
+			size--;
+			return true;
+		}
+	
+			
+		while(temp != null) {
+			if(temp.data == element ) {
+				size--;
+				prev.next = temp.next;
+				return true;
+			}
+			prev = temp;
+			temp = temp.next;
+		}
+		
+		return false;
+	}
+	
+	/**method created find the size of the list
+	 * @return
+	 */
+	public int size() {
+		return this.size;
 	}
 	
 	/**
