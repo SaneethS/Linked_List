@@ -96,6 +96,29 @@ public class LinkedList {
 		return temp.data;
 	}
 	
+	/**this method is created to pop the last element from the list
+	 * @return
+	 */
+	public int popLast() {
+		if(head == null) {
+			System.out.println("List is empty!!");
+			return 0;
+		}
+		if(head.next == null) {
+			Node temp = head;
+			head = null;
+			return temp.data;
+		}
+		
+		Node temp = head;
+		while(temp.next.next != null) {
+			temp = temp.next;
+		}
+		int data = temp.next.data;
+		temp.next = null;
+		return data;
+	}
+	
 	/**
 	 * this is the method used to display the linked list
 	 */
