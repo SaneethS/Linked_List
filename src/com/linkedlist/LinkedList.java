@@ -58,6 +58,8 @@ public class LinkedList {
 	 * @param data
 	 */
 	public void insertAtPos(int pos, int data) {
+		Node newNode = new Node(data); 
+		newNode.next = null;
 		
 		if(pos < 1) {
 			System.out.println("Invalid position");
@@ -67,20 +69,21 @@ public class LinkedList {
 		if(pos == 1) {
 			push(data);
 		}else {
-			while(pos-- != 0) {
-				
-				if(pos == 1) {
-					Node newNode = new Node(data);
-					newNode.next = head.next;
-					head.next = newNode;
-					break;
-				}
-				head = head.next;
-			}
-			if(pos != 1) {
-				System.out.println("Position is out of range");
+			Node temp;
+		    temp = head;
+		    for(int i = 1; i < pos-1; i++) {
+		      if(temp != null) {
+		        temp = temp.next;
+		      }
+		    }
+		    if(temp != null) {
+			      newNode.next = temp.next;
+			      temp.next = newNode;  
+			} else {
+			   System.out.println("The previous node is null");
 			}
 		}
+		
 	}
 	
 	/**this method is created the values from the linked list

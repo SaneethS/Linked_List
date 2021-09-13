@@ -6,9 +6,10 @@ public class Main {
 		LinkedList list = new LinkedList();
 		
 		list.push(70);
+		list.push(30);
 		list.push(56);
 		
-		list.insertAtPos(2, 30);
+		list.insertAtPos(3, 40);
 		
 		list.print();
 		
