@@ -10,7 +10,7 @@ public class Main {
 		
 		list.insertAtPos(2, 30);
 		
-		list.pop();
+		list.popLast();
 		list.print();
 		
 		
