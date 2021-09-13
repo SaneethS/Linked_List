@@ -83,6 +83,19 @@ public class LinkedList {
 		}
 	}
 	
+	/**this method is created the values from the linked list
+	 * @return
+	 */
+	public int pop() {
+		if(head == null) {
+			System.out.println("List is empty!!");
+			return 0;
+		}
+		Node temp = head;
+		head = temp.next;
+		return temp.data;
+	}
+	
 	/**
 	 * this is the method used to display the linked list
 	 */
