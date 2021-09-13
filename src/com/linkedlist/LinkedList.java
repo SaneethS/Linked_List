@@ -119,6 +119,28 @@ public class LinkedList {
 		return data;
 	}
 	
+	/**this method is created to check whether the particular value is present in the list
+	 * return true if present otherwise false 
+	 * @param element
+	 * @return
+	 */
+	public boolean search(int element) {
+		if(head == null) {
+			System.out.println("List is empty");
+			return false;
+		}
+		Node temp = head;
+		boolean isFound = false;
+		while(temp != null) {
+			if(temp.data == element) {
+				isFound =true;
+				break;
+			}
+			temp = temp.next;
+		}
+		return isFound;
+	}
+	
 	/**
 	 * this is the method used to display the linked list
 	 */
