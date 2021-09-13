@@ -9,6 +9,8 @@ public class Main {
 		list.push(56);
 		
 		list.insertAtPos(2, 30);
+		
+		list.pop();
 		list.print();
 		
 		
