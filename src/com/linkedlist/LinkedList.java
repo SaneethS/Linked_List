@@ -4,19 +4,19 @@ package com.linkedlist;
  * @author saneeths
  *
  */
-public class LinkedList {
-	private Node head;
+public class LinkedList<T> {
+	private Node<T> head;
 	private int size;
 	
 	/**nested class is created to implement node in linked list
 	 * @author saneeths
 	 *
 	 */
-	private class Node {
-		int data;
-		Node next;
+	private class Node<E> {
+		E data;
+		Node<E> next;
 		
-		Node(int data) {
+		Node(E data) {
 			this.data = data;
 			next = null;
 		}
@@ -25,8 +25,8 @@ public class LinkedList {
 	/**this method is created to add the values to the linked list
 	 * @param data
 	 */
-	public void push(int data) {
-		Node newNode = new Node(data);
+	public void push(T data) {
+		Node<T> newNode = new Node<T>(data);
 		newNode.next = head;
 		head = newNode;
 		size++;
@@ -36,14 +36,14 @@ public class LinkedList {
 	 * @param data
 	 * @return
 	 */
-	public boolean append(final int data) {
+	public boolean append(final T data) {
 		boolean isAdded  = false;
-		Node newNode = new Node(data);
+		Node<T> newNode = new Node<T>(data);
 		if(head == null) {
 			head = newNode;
 			isAdded  =true;
 		}else {
-			Node temp = head;
+			Node<T> temp = head;
 			
 			while(temp.next != null) {
 				temp = temp.next;
@@ -60,8 +60,8 @@ public class LinkedList {
 	 * @param pos
 	 * @param data
 	 */
-	public void insertAtPos(int pos, int data) {
-		Node newNode = new Node(data); 
+	public void insertAtPos(int pos, T data) {
+		Node<T> newNode = new Node<T>(data); 
 		newNode.next = null;
 		
 		if(pos < 1) {
@@ -73,7 +73,7 @@ public class LinkedList {
 			push(data);
 			size++;
 		}else {
-			Node temp;
+			Node<T> temp;
 		    temp = head;
 		    for(int i = 1; i < pos-1; i++) {
 		      if(temp != null) {
@@ -94,12 +94,12 @@ public class LinkedList {
 	/**this method is created the values from the linked list
 	 * @return
 	 */
-	public int pop() {
+	public T pop() {
 		if(head == null) {
 			System.out.println("List is empty!!");
-			return 0;
+			return null;
 		}
-		Node temp = head;
+		Node<T> temp = head;
 		head = temp.next;
 		size--;
 		return temp.data;
@@ -108,23 +108,23 @@ public class LinkedList {
 	/**this method is created to pop the last element from the list
 	 * @return
 	 */
-	public int popLast() {
+	public T popLast() {
 		if(head == null) {
 			System.out.println("List is empty!!");
-			return 0;
+			return null;
 		}
 		if(head.next == null) {
-			Node temp = head;
+			Node<T> temp = head;
 			head = null;
 			size--;
 			return temp.data;
 		}
 		
-		Node temp = head;
+		Node<T> temp = head;
 		while(temp.next.next != null) {
 			temp = temp.next;
 		}
-		int data = temp.next.data;
+		T data = temp.next.data;
 		temp.next = null;
 		size--;
 		return data;
@@ -135,12 +135,12 @@ public class LinkedList {
 	 * @param element
 	 * @return
 	 */
-	public boolean search(int element) {
+	public boolean search(T element) {
 		if(head == null) {
 			System.out.println("List is empty");
 			return false;
 		}
-		Node temp = head;
+		Node<T> temp = head;
 		boolean isFound = false;
 		while(temp != null) {
 			if(temp.data == element) {
@@ -157,13 +157,13 @@ public class LinkedList {
 	 * @param element
 	 * @return
 	 */
-	public boolean remove(int element) {
+	public boolean remove(T element) {
 		if(!search(element)) {
 			System.out.println("Data not found!!");
 			return false;
 		}
-		Node temp = head;
-		Node prev = null;
+		Node<T> temp = head;
+		Node<T> prev = null;
 		if(temp != null && temp.data == element) {
 			head =temp.next;
 			size--;
@@ -195,7 +195,7 @@ public class LinkedList {
 	 * this is the method used to display the linked list
 	 */
 	public void print() {
-		Node temp = head;
+		Node<T> temp = head;
 		
 		System.out.println("LinkedList : ");
 		
